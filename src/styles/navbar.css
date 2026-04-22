@@ -1,0 +1,229 @@
+/* ── Navbar ──────────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar--transparent { background-color: transparent; }
+
+.navbar--solid {
+  background-color: #ffffff;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .navbar__inner { padding: 0 1.5rem; height: 68px; }
+}
+
+@media (min-width: 1024px) {
+  .navbar__inner { height: 72px; }
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  /* Touch target mínimo */
+  min-height: 44px;
+}
+
+.navbar__logo-icon {
+  width: 2.125rem;
+  height: 2.125rem;
+  background-color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .navbar__logo-icon { width: 2.25rem; height: 2.25rem; }
+}
+
+.navbar__logo-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  transition: color 0.35s;
+}
+
+@media (min-width: 640px) {
+  .navbar__logo-text { font-size: 1.25rem; }
+}
+
+.navbar__logo-text--light { color: #ffffff; }
+.navbar__logo-text--dark  { color: #15803d; }
+
+/* Links desktop */
+.navbar__links {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .navbar__links { display: flex; gap: 1.75rem; }
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Subrayado animado — solo dispositivos con hover real */
+@media (hover: hover) and (pointer: fine) {
+  .navbar__link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4caf50;
+    border-radius: 1px;
+    transition: width 0.25s ease;
+  }
+  .navbar__link:hover::after { width: 100%; }
+}
+
+.navbar__link--light       { color: rgba(255, 255, 255, 0.9); }
+.navbar__link--light:hover { color: #ffffff; }
+.navbar__link--dark        { color: #374151; }
+.navbar__link--dark:hover  { color: #16a34a; }
+
+/* CTA button */
+.navbar__cta {
+  background-color: #16a34a;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1.375rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar__cta:hover {
+    background-color: #15803d;
+    transform: scale(1.04);
+  }
+}
+
+/* Hamburger — touch target 44×44 */
+.navbar__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  color: inherit;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .navbar__hamburger { display: none; }
+}
+
+/* Mobile menu */
+.navbar__mobile {
+  background: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  /* overflow:hidden lo maneja Framer en el motion.div */
+  padding-bottom: env(safe-area-inset-bottom);
+  will-change: height, opacity;
+}
+
+.navbar__mobile-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem 1.25rem;
+  gap: 0;
+}
+
+@media (min-width: 480px) {
+  .navbar__mobile-inner { padding: 1rem 1.5rem 1.5rem; }
+}
+
+/* Touch target mínimo en cada link */
+.navbar__mobile-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.18s, background-color 0.18s, padding-left 0.18s;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-radius: 0.5rem;
+  will-change: transform, opacity;
+}
+
+.navbar__mobile-link:last-of-type { border-bottom: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar__mobile-link:hover {
+    color: #16a34a;
+    background-color: #f0fdf4;
+    padding-left: 1rem;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar__mobile-link:hover { color: #16a34a; }
+}
+
+.navbar__mobile-cta {
+  background-color: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.9375rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.15s;
+  margin-top: 1rem;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
+  will-change: transform, opacity;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar__mobile-cta:hover { background-color: #15803d; transform: scale(1.02); }
+}

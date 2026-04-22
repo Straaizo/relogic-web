@@ -1,0 +1,87 @@
+/* ── Impacto ─────────────────────────────────────────────── */
+.impacto {
+  padding: 3.5rem 0;
+  background-color: #1b5e20;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(46,125,50,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(56,142,60,0.3) 0%, transparent 50%);
+}
+
+@media (min-width: 768px)  { .impacto { padding: 5rem 0; } }
+@media (min-width: 1024px) { .impacto { padding: 6rem 0; } }
+
+.impacto__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 480px)  { .impacto__inner { padding: 0 1.5rem; } }
+@media (min-width: 1280px) { .impacto__inner { padding: 0 2rem; } }
+
+.impacto__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) { .impacto__header { margin-bottom: 3.5rem; } }
+
+.impacto__title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.impacto__subtitle {
+  color: #86efac;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 640px) { .impacto__subtitle { font-size: 0.9375rem; } }
+
+/* Grid: 2 cols en mobile, 4 en desktop */
+.impacto__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px)  { .impacto__grid { gap: 1.5rem; } }
+@media (min-width: 1024px) { .impacto__grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; } }
+
+.impacto__stat {
+  text-align: center;
+  padding: 1.25rem 0.75rem;
+  border-radius: 0.875rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background-color 0.2s;
+}
+
+@media (min-width: 640px) { .impacto__stat { padding: 1.5rem; border-radius: 1rem; } }
+
+@media (hover: hover) and (pointer: fine) {
+  .impacto__stat:hover { background: rgba(255, 255, 255, 0.1); }
+}
+
+.impacto__number {
+  font-size: clamp(2rem, 7vw, 3.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.impacto__label {
+  color: #bbf7d0;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .impacto__label { font-size: 0.9375rem; margin-top: 0.625rem; }
+}

@@ -1,0 +1,133 @@
+/* ── Cómo Trabajamos ─────────────────────────────────────── */
+.como {
+  padding: 3.5rem 0;
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 768px)  { .como { padding: 5rem 0; } }
+@media (min-width: 1024px) { .como { padding: 7rem 0; } }
+
+.como__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 480px)  { .como__inner { padding: 0 1.5rem; } }
+@media (min-width: 1280px) { .como__inner { padding: 0 2rem; } }
+
+.como__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) { .como__header { margin-bottom: 4rem; } }
+
+/* Timeline */
+.como__timeline {
+  position: relative;
+  display: grid;
+  gap: 2rem;
+}
+
+/* Mobile: 1 columna */
+@media (min-width: 540px)  { .como__timeline { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
+@media (min-width: 1024px) { .como__timeline { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+
+/* Línea conectora — solo desktop (4 columnas) */
+.como__timeline::before {
+  content: '';
+  display: none;
+  position: absolute;
+  top: 2rem;
+  left: calc(12.5% + 0.5rem);
+  right: calc(12.5% + 0.5rem);
+  height: 2px;
+  background: linear-gradient(90deg, #bbf7d0, #16a34a, #bbf7d0);
+  z-index: 0;
+}
+
+@media (min-width: 1024px) { .como__timeline::before { display: block; } }
+
+/* Línea vertical entre pasos en mobile (1 col) */
+@media (max-width: 539px) {
+  .como__step:not(:last-child)::after {
+    content: '';
+    display: block;
+    width: 2px;
+    height: 1.5rem;
+    background: linear-gradient(to bottom, #16a34a, #bbf7d0);
+    margin: 1rem auto 0;
+    border-radius: 1px;
+  }
+}
+
+/* Paso */
+.como__step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.como__step-circle {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #16a34a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(22, 163, 74, 0.35);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s;
+}
+
+@media (min-width: 640px) {
+  .como__step-circle { width: 4rem; height: 4rem; margin-bottom: 1.25rem; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .como__step:hover .como__step-circle { transform: scale(1.1); }
+}
+
+.como__step-icon {
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) { .como__step-icon { font-size: 1.375rem; } }
+
+.como__step-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #22c55e;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 640px) { .como__step-num { font-size: 0.8125rem; margin-bottom: 0.375rem; } }
+
+.como__step-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) { .como__step-title { font-size: 1.125rem; margin-bottom: 0.625rem; } }
+
+.como__step-desc {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  line-height: 1.65;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .como__step-desc { font-size: 0.875rem; max-width: 14rem; }
+}
